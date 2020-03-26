@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+    <style>
+        .anniu{
+            width: 200px;
+            height: 50px;
+            background-color: #d8b67d;
+            margin: 0 auto;
+            margin-top: 100px;
+            display: block;
+            text-decoration: none;
+            font-size: 18px;
+            color:rgb(68,68,68);
+            line-height: 50px;
+            text-align: center;
+            font-weight: 600;
+            animation:myfirst .2s;
+            transform-origin: center center;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+            animation-timing-function:linear;
+            
+        }
+        @keyframes myfirst
+        {
+            0%   {transform: scale(1);}
+            100% {transform: scale(1.1);}
+        }
+        a:nth-child(1):hover{
+            background-color: #daad5f;
+        }
+
+        .jiaohu{
+            
+            width: 532px;
+            height: 271px;
+            margin: 0 auto;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .jiaohu p{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            transition:background-color .2s,opacity .2s;
+            position: absolute;
+            top: 0;
+            background-color: rgba(0,0,0,0);
+            opacity: 0;
+        }
+        .jiaohu:hover p{
+            opacity: 1;
+            background-color: rgba(0,0,0,.3);
+        }
+
+        
+
+        .jiaohu p b{
+            display: block;
+            font-size: 12px;
+            font-weight: 400px;
+            color:white;
+            margin-top: -60px;
+            transition: margin-top .2s,font-size .2s;
+        }
+
+        .jiaohu:hover p b{
+            font-size: 24px;
+            margin-top: 0px;
+        }
+        .xiantiao{
+            width: 0;
+            height: 50px;
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            position: absolute;
+            transition:width .2s,height .2s;
+        }
+        .jiaohu:hover .xiantiao{
+            width: 50%;
+            height: 50px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        .jiaohu2{
+            display: inline-block;
+            position: relative;
+            margin: 0;
+        }
+        .jiaohu2 p{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background-color: rgba(0,0,0,.3);
+            margin: 0;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+        .jiaohu2:hover p{
+            opacity: 1;
+        }
+        .jiaohu2 .xiantiao2{
+            position: absolute;
+            height: 50px;
+            width: 0;
+            top: 50%;
+            left: 50%;
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            transform:translate(-50%,-50%);
+            transition: width .2s;
+            text-align: center;
+            line-height: 50px;
+            color:white;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .jiaohu2:hover .xiantiao2{
+            width:50%;
+        }
+        .jiaohu2 .xiantiao2 b{
+            font-size: 10px;
+            display: block;
+            margin-top: -50px;
+            transition: margin-top .2s,font-size .2s;
+        }
+        .jiaohu2:hover .xiantiao2 b{
+            margin-top: 0px;
+            font-size: 24px;
+        }
+
+        .imgs{
+            width: 373px;
+            height: 529px;
+            position: relative;
+        }
+        
+        .imgs a{
+            background-color: rgba(0,0,0,.8);
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        .imgs a>img{
+            margin-top: 40px;
+        }
+        .imgs a{
+            text-decoration: none;
+            cursor: default;
+            color: white;
+            font-size: 14px;
+            line-height: 26px;
+            transform:scale(0);
+            transform-origin: center center;
+            transition:.5s;
+        }
+        .liangduan{
+            width: 80%;
+            margin-top: 50px;
+        }
+        .imgs:hover a{
+            transform:scale(1);
+        }
+        
+
+    </style>
+    </head>
+    <body>
+
+
+
+
+        <div class="imgs">
+            <img src="t12_1.jpg" alt="">
+            <a href="#">
+                <img src="i5.png" alt="">
+                <div class="liangduan">
+                    <p>我们在这里放置了一颗从布林顿4000手里抢来的自动跳舞信号发射器，喝下这杯白银骑士团老兵亲手调制的黑铁烈酒，然后一起在艾泽拉斯怀旧营/dance。</p>
+                    <p>这是魔兽世界官方正式授权的主题露营活动，除了游戏中的战火，其实我们可以暂时放下联盟和部落之间的势不两立，联手拼凑起我们的怀旧时光和感动回忆。</p>
+                </div>
+            </a>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+        
+        <a class="anniu" href="">立即购买</a>
+        <a class="jiaohu" href="#">
+            <img src="t3.jpg" alt="">
+            <p>
+                <b>三大音乐舞台</b>
+            </p>
+            <div class="xiantiao"></div>
+        </a>
+        
+
+        <a class="jiaohu2" href="#">
+            <img src="t3.jpg" alt="">
+            <p></p>
+            <div class="xiantiao2">
+                <b>三大音乐舞台</b>
+            </div>
+        </a> -->
+
+        
+
+    </body>
+</html>
