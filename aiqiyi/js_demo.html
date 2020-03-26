@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    
+    <button onclick="dianji()">点我</button>
+    <br>
+    <p>点击按钮检测年龄</p>
+    <span>年龄</span><input id="age" type="text" value="18">
+    <p>是否达到投票年龄？</p>
+    <button onclick="ageceshi()">点击按钮</button>
+    <p id="jieguo"></p>
+    <br>
+    <p>替换 "Microsoft" 为 "Runoob" :</p>
+    <button onclick="tihuan()">点我替换</button>
+    <br>
+    <span id="tihuan_con">请访问 Microsoft!</span>
+    <br>
+    <br>
+    <h2>JavaScript验证输入</h2>
+    <p>请输入1到10之间的数字：</p>
+    <input id="shuru" type="text"><button onclick="tj()">提交</button>
+    <p id="neirong"></p>
+    <br>
+    <br>
+    <p>输入数字并点击验证按钮</p>
+    <input id="num" type="number" max=300 min=100 required>
+    <button onclick="yanzheng()">验证</button>
+    <p>如果输入的数字小于100或大于300，会提示错误信息。</p>
+    <p id="jg"></p>
+    <br>
+    <br>
+    <!-- 分隔 -->
+    <script>
+        var i=0;
+        var cars=new Array();
+        cars[0]="cars1";
+        cars[1]="cars2";
+        cars[2]="cars3";
+
+        for(i=0;i<cars.length;i++)
+        {
+            document.write(cars[i]+"<br>");
+        }
+
+
+        var person={
+            name:"zhudan",
+            age:27,
+            sex:"男",
+            fullName:function(){
+                return this.name+"，"+this.age+"，"+this.sex;
+            }
+        };
+
+        document.write(person.name+"<br>");
+        document.write(person.fullName+"<brs>");
+        document.write(person.fullName());
+
+        function dianji(){
+            alert("hello world!")
+        }
+
+        function ageceshi(){
+            var age,jieguo;
+            age=document.getElementById("age").value;
+            if(!age){
+                alert("不能为空");
+                return;
+            }
+            jieguo=(age<18)?"年龄太小":"年龄合适";
+            document.getElementById("jieguo").innerHTML=jieguo;
+
+        }
+
+        function tihuan(){
+            var content=document.getElementById("tihuan_con").innerHTML;
+            var txt=content.replace("Microsoft","Runoob");
+            document.getElementById("tihuan_con").innerHTML=txt;
+        }
+
+        function tj(){
+            zhi=document.getElementById("shuru").value;
+            if(zhi<1||zhi>10){
+                text="输入错误："+zhi;
+            }else{
+                text="输入正确："+zhi;
+            }
+            document.getElementById("neirong").innerHTML=text;
+        }
+
+
+        function yanzheng(){
+            var zhi=document.getElementById("num");//获取类型而非具体的值
+            if(zhi.checkValidity()==false){
+                document.getElementById("jg").innerHTML=zhi.validationMessage;
+            }else{
+                document.getElementById("jg").innerHTML="结果正确";
+            }
+        }
+
+    </script>
+</body>
