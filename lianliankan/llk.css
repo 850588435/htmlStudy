@@ -1,0 +1,12 @@
+.t1,.t2{
+    width: 100px;
+    height: 100px;
+    
+}
+.t1{
+    background-color: aquamarine;
+}
+
+.t2{
+    background-color: cadetblue;
+}
