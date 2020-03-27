@@ -1,12 +1,17 @@
-.t1,.t2{
-    width: 100px;
-    height: 100px;
+.fangge{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
     
 }
-.t1{
-    background-color: aquamarine;
+.yihang{
+    display: flex;
+    flex-direction: row;
 }
-
-.t2{
+.con{
+    width: 100px;
+    height: 100px;
     background-color: cadetblue;
+    margin: 10px 20px 10px 0;
 }

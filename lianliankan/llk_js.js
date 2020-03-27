@@ -1,5 +1,5 @@
-(function(){
-    function dianji(){
-        
-    }
-})()
+function dianji(){
+    
+    
+
+}
