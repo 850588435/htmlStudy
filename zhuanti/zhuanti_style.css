@@ -192,8 +192,26 @@ img{
 }
 
 
+.xinxi{
+    height: 56px;
+}
 
+.xinxi p{
+    display: inline-block;
+    height: 56px;
+    width: 56px;
+    margin: 0;
+}
 
+.xinxi p:nth-child(1){
+    background-image: url("img/nav-search.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px;
+}
+.xinxi p:nth-child(1):hover{
+    background-image: url("img/nav-search-hover.svg");
+}
 
 
 
