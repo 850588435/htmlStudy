@@ -194,13 +194,18 @@ img{
 
 .xinxi{
     height: 56px;
+    margin-right: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .xinxi p{
     display: inline-block;
     height: 56px;
-    width: 56px;
+    width: 60px;
     margin: 0;
+    cursor: pointer;
 }
 
 .xinxi p:nth-child(1){
@@ -211,11 +216,73 @@ img{
 }
 .xinxi p:nth-child(1):hover{
     background-image: url("img/nav-search-hover.svg");
+    background-color: #282828;
+}
+
+.xinxi p:nth-child(2){
+    width: 62px;
+    background-image: url("img/nav-upload.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 20px;
+}
+.xinxi p:nth-child(2):hover{
+    background-image: url("img/nav-upload-hover.svg");
+    background-color: #282828;
+}
+
+.xinxi p:nth-child(3){
+    width: 60x;
+    background-image: url("img/nav-message.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 25px 20px;
+    position: relative;
+}
+.xinxi p:nth-child(3):hover{
+    background-image: url("img/nav-message-hover.svg");
+    background-color: #282828;
+}
+.xinxi p:nth-child(3) span{
+    position: absolute;
+    background-color:#f4523b;
+    width: 22px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    top: 12px;
+    left: 30px;
 }
 
 
+.xinxi p:nth-child(4){
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.xinxi p:nth-child(4) span{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color:#f4523b;
+    top: 11px;
+    left: 49px;
+}
+.xinxi p:nth-child(4):hover{
+    background-color: #282828;
+}
 
-
+.xinxi img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
 
 
 
