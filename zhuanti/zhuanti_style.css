@@ -1,4 +1,6 @@
-
+body{
+    min-width: 1400px;
+}
 #container{
     width: 100%;
     display: flex;
@@ -265,7 +267,7 @@ img{
     align-items: center;
     position: relative;
 }
-.xinxi p:nth-child(4) span{
+.xinxi p:nth-child(4)>span{
     position: absolute;
     width: 8px;
     height: 8px;
@@ -284,18 +286,72 @@ img{
     border-radius: 30px;
 }
 
+.xinxi p:nth-child(4) .xiala_con{
+    display: none;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    z-index: 10;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-radius: 0 0 4px 4px;
+    padding-bottom: 5px;
+}
+.xinxi p:nth-child(4):hover .xiala_con{
+    display: flex;
+    flex-direction: column;
+}
 
+.xiala_con>a{
+    display: block;
+    width: 160px;
+    height: 60px;
+    line-height: 61px;
+    font-size: 14px;
+    color:rgb(68, 68, 68);
+    font-weight: 600;
+    padding-left: 20px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
 
+.xiala_con .xiala_con1:nth-of-type(1){
+    margin-top: 5px;
+}
 
+.xiala_con1{
+    display: flex;
+    flex-direction: column;
+}
 
+.xiala_con1 a{
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    font-weight: 400;
+    color:rgb(68, 68, 68);
+}
 
+.xiala_con1 a:hover{
+    background-color: #ffe300;
+}
 
+.xiala_con b:nth-of-type(1),b:nth-of-type(2){
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
 
+.xiala_con:nth-of-type(1) a{
+    position: relative;
+}
 
-
-
-
-
+.xiala_con1:nth-of-type(1) a span{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color:#f4523b;
+    top: 11px;
+    left: 79px;
+}
 
 
 
@@ -366,7 +422,7 @@ img{
     margin:25px 0 45px 0;
 }
 
-.tiantang_jiaohu a:nth-of-type(1),a:nth-last-of-type(2){
+.tiantang_jiaohu>a:nth-of-type(1),.tiantang_jiaohu>a:nth-last-of-type(2){
     margin-right: 16px;
 }
 
