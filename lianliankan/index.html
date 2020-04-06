@@ -7,131 +7,40 @@
 </head>
 <body>
 	<div class="fangge">
-        <div class="yihang">
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-        </div>
-        <div class="yihang">
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-        </div>
-        <div class="yihang">
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-        </div>
-        <div class="yihang">
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-        </div>
-        <div class="yihang">
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-        </div>
-        <div class="yihang">
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-            <div class="con" onclick="dianji()">
-
-            </div>
-        </div>
-        
+        <script>
+            function $(x){
+                return document.getElementById(x);
+            }
+            var rows=5,cells=6;
+            var len=rows*cells;
+            var arr=[];
+            for(var i=0;i<len/2;i++){
+                arr[i]="<img src='img/"+i+".jpg'>";
+                arr[len/2+i]="<img src='img/"+i+".jpg'>";
+            }
+            function randomSort(a, b) { return Math.random() > 0.5 ? -1 : 1; }
+            arr.sort(randomSort);
+        </script>
+        <script>
+            var z=0;
+            var str="";
+            for( var i=0;i<rows;i++){
+                str+="<div class='con'>";
+                for(var j=0;j<cells;j++){
+                    str+="<div id='fg"+((i*5)+j+1)+"' onclick='dianji("+((i*5)+j+1)+")'>"+arr[z++]+"</div>";
+                }
+                str+="</div>";
+            }
+            document.write(str);
+            check();
+        </script>
     </div>
+    <script>
+        function check(){
+            $()
+        }
 
+    </script>
 
-<script src="llk_js.js"></script>
-	
 </body>
 </html>

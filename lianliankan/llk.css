@@ -1,17 +1,20 @@
 .fangge{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    
-}
-.yihang{
-    display: flex;
-    flex-direction: row;
+    min-width: 720px;
+    width: 720px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 .con{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.con>div{
+    /* background-color: blueviolet; */
     width: 100px;
     height: 100px;
-    background-color: cadetblue;
-    margin: 10px 20px 10px 0;
+}
+img{
+    width: 100px;
+    height: 100px;
 }
