@@ -15,8 +15,8 @@
             var len=rows*cells;
             var arr=[];
             for(var i=0;i<len/2;i++){
-                arr[i]="<img src='img/"+i+".jpg'>";
-                arr[len/2+i]="<img src='img/"+i+".jpg'>";
+                arr[i]=i;
+                arr[len/2+i]=i;
             }
             function randomSort(a, b) { return Math.random() > 0.5 ? -1 : 1; }
             arr.sort(randomSort);
@@ -27,17 +27,49 @@
             for( var i=0;i<rows;i++){
                 str+="<div class='con'>";
                 for(var j=0;j<cells;j++){
-                    str+="<div id='fg"+((i*5)+j+1)+"' onclick='dianji("+((i*5)+j+1)+")'>"+arr[z++]+"</div>";
+
+                    str+="<img id='fg"+((i*5)+j+1)+"' onclick='dianji("+((i*5)+j+1)+")' src='img/"+arr[z++]+".jpg'>";
                 }
                 str+="</div>";
             }
             document.write(str);
-            check();
         </script>
     </div>
     <script>
-        function check(){
-            $("fg"+x)
+
+        var duibi="";
+        var id="";
+        var index=0;
+
+        function dianji(x){
+            var imgget="";
+            
+            if(duibi==""){
+                duibi=$("fg"+x).getAttribute('src');
+                console.log("duibi="+duibi);
+                id=x;
+            }else{
+                if(id==x){
+                    alert("快去找到另一半!");
+                
+                }else{
+                    imgget=$("fg"+x).getAttribute('src');
+                    console.log("imgget="+imgget);
+                    if(duibi==imgget){
+                        $("fg"+x).style.visibility="hidden";
+                        $("fg"+id).style.visibility="hidden";
+                        index=index+2;
+                    }
+                    
+                }
+                duibi="";
+                id="";
+            }
+            if(index==len){
+                alert("恭喜通过！！！再来一次")
+                window.location.reload();
+            }
+        
         }
 
     </script>
