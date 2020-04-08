@@ -13,3 +13,10 @@ img{
     width: 100px;
     height: 100px;
 }
+@keyframes no_pipei
+{
+    0%   {transform: translate(0,0);}
+    25%  {transform: translate(-3px,0);}
+    75%  {transform: translate(3px,0);}
+    100% {transform: translate(0,0);}
+}

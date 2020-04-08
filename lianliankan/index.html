@@ -8,6 +8,7 @@
 <body>
 	<div class="fangge">
         <script>
+            
             function $(x){
                 return document.getElementById(x);
             }
@@ -35,6 +36,7 @@
             }
             document.write(str);
         </script>
+        
     </div>
     <script>
 
@@ -42,29 +44,52 @@
         var id="";
         var index=0;
 
+        
+
         function dianji(x){
             var imgget="";
-            
             if(duibi==""){
                 duibi=$("fg"+x).getAttribute('src');
-                console.log("duibi="+duibi);
                 id=x;
+                
             }else{
                 if(id==x){
-                    alert("快去找到另一半!");
-                
+                    $("fg"+x).style.animationName="no_pipei";
+                    $("fg"+x).style.animationDuration=".3s";
+                    
                 }else{
                     imgget=$("fg"+x).getAttribute('src');
-                    console.log("imgget="+imgget);
                     if(duibi==imgget){
                         $("fg"+x).style.visibility="hidden";
                         $("fg"+id).style.visibility="hidden";
                         index=index+2;
+                        
+                    }else{
+                        $("fg"+x).style.animationName="no_pipei";
+                        $("fg"+x).style.animationDuration=".3s";
+                        $("fg"+id).style.animationName="no_pipei";
+                        $("fg"+id).style.animationDuration=".3s";
+                        
                     }
                     
+                    
                 }
-                duibi="";
-                id="";
+                
+                
+                setTimeout(function(){
+                    $("fg"+id).style.animationName="";
+                    $("fg"+x).style.animationName="";
+                }, 300);
+                
+               //临时办法，利用时间差
+                setTimeout(function(){
+                    duibi="";
+                    id="";
+                }, 400);
+                    
+                
+                
+                
             }
             
             if(index==len){
@@ -77,11 +102,8 @@
                 setTimeout(function(){
                     alert("恭喜通过！！！再来一次");
                     location.reload();
-                },300)
+                },200)
 
-                
-                
-                
             }
         
         }
