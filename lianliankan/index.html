@@ -23,12 +23,13 @@
         </script>
         <script>
             var z=0;
+            var y=0;
             var str="";
             for( var i=0;i<rows;i++){
                 str+="<div class='con'>";
                 for(var j=0;j<cells;j++){
-
-                    str+="<img id='fg"+((i*5)+j+1)+"' onclick='dianji("+((i*5)+j+1)+")' src='img/"+arr[z++]+".jpg'>";
+                    ++y;
+                    str+="<img id='fg"+((i*5)+y)+"' onclick='dianji("+((i*5)+y)+")' src='img/"+arr[z++]+".jpg'>";
                 }
                 str+="</div>";
             }
@@ -65,9 +66,16 @@
                 duibi="";
                 id="";
             }
+            
             if(index==len){
-                alert("恭喜通过！！！再来一次")
-                window.location.reload();
+                
+                setTimeout(()=>{
+                    alert("恭喜通过！！！再来一次");
+                },1000)
+
+                
+                
+                
             }
         
         }
