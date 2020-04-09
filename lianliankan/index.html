@@ -12,6 +12,18 @@
             function $(x){
                 return document.getElementById(x);
             }
+
+            function add_playvoice(x){
+                $(x).addEventListener("click",function(){
+                    $("mp3").play();
+                });
+                
+            }
+
+            function remove_playvoice(x){
+                $(x).removeEventListener("click",add_playvoice);
+            }
+
             var rows=5,cells=6;
             var len=rows*cells;
             var arr=[];
@@ -38,6 +50,9 @@
         </script>
         
     </div>
+    <audio id="fail" src="img/fail.mp3" ></audio>
+    <audio id="success" src="img/success.mp3" ></audio>
+    
     <script>
 
         var duibi="";
@@ -56,12 +71,13 @@
                 if(id==x){
                     $("fg"+x).style.animationName="no_pipei";
                     $("fg"+x).style.animationDuration=".3s";
-                    
+                    $("fail").play();
                 }else{
                     imgget=$("fg"+x).getAttribute('src');
                     if(duibi==imgget){
                         $("fg"+x).style.visibility="hidden";
                         $("fg"+id).style.visibility="hidden";
+                        $("success").play();
                         index=index+2;
                         
                     }else{
@@ -69,6 +85,7 @@
                         $("fg"+x).style.animationDuration=".3s";
                         $("fg"+id).style.animationName="no_pipei";
                         $("fg"+id).style.animationDuration=".3s";
+                        $("fail").play();
                         
                     }
                     
@@ -79,6 +96,7 @@
                 setTimeout(function(){
                     $("fg"+id).style.animationName="";
                     $("fg"+x).style.animationName="";
+
                 }, 300);
                 
                //临时办法，利用时间差
