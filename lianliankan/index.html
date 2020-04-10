@@ -20,6 +20,18 @@
                 
             }
 
+            function add_botderStyle(x){
+                $(x).style.borderStyle="solid";
+                $(x).style.borderWidth="2px";
+                $(x).style.borderColor="#9c3f00";
+                $(x).style.boxSizing="border-box";
+                $(x).style.borderRadius="10px";
+            }
+
+            function remove_botderStyle(x){
+                $(x).style.borderStyle="none";
+            }
+
             function remove_playvoice(x){
                 $(x).removeEventListener("click",add_playvoice);
             }
@@ -63,15 +75,18 @@
 
         function dianji(x){
             var imgget="";
+            add_botderStyle("fg"+x);
             if(duibi==""){
                 duibi=$("fg"+x).getAttribute('src');
                 id=x;
-                
             }else{
                 if(id==x){
                     $("fg"+x).style.animationName="no_pipei";
                     $("fg"+x).style.animationDuration=".3s";
                     $("fail").play();
+                    setTimeout(function(){
+                        remove_botderStyle("fg"+x);
+                    }, 300);
                 }else{
                     imgget=$("fg"+x).getAttribute('src');
                     if(duibi==imgget){
@@ -89,13 +104,14 @@
                         
                     }
                     
-                    
                 }
                 
                 
                 setTimeout(function(){
                     $("fg"+id).style.animationName="";
                     $("fg"+x).style.animationName="";
+                    remove_botderStyle("fg"+id);
+                    remove_botderStyle("fg"+x);
 
                 }, 300);
                 
