@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head> 
-<meta charset="utf-8"> 
-<link rel="stylesheet" type="text/css" href="llk.css">
-<title>lianliankan_Demo</title> 
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" type="text/css" href="llk.css">
+    <title>lianliankan_Demo</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+    <div id="daohang">
+        <div id="count_down">
+            <div class="kaishi" onclick="kaishis()">开始游戏</div>
+            <img src="img/time.png" alt="">
+            <p id="daojishi">01:00</p>
+        </div>
+        <div id="count_down">
+            <img src="img/defen.png" alt="">
+            <p id="defen">0</p>
+        </div>
+    </div>
 	<div class="fangge">
         <script>
+
+            var donghua_time=".5s"
+            var rows=5,cells=6;
+            var len=rows*cells;
+            var arr=[];
+            for(var i=0;i<len/2;i++){
+                arr[i]=i;
+                arr[len/2+i]=i;
+            }
+            function randomSort(a, b) { return Math.random() > 0.5 ? -1 : 1; }
+            arr.sort(randomSort);
             
             function $(x){
                 return document.getElementById(x);
@@ -18,6 +41,14 @@
                     $("mp3").play();
                 });
                 
+            }
+
+            //时间格式转换
+            function secondToDate(result){
+                var h = Math.floor(result / 3600) < 10 ? '0'+Math.floor(result / 3600) : Math.floor(result / 3600);
+                var m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60));
+                var s = Math.floor((result % 60)) < 10 ? '0' + Math.floor((result % 60)) : Math.floor((result % 60));
+                return result = m + ":" + s;
             }
 
             function add_botderStyle(x){
@@ -36,15 +67,13 @@
                 $(x).removeEventListener("click",add_playvoice);
             }
 
-            var rows=5,cells=6;
-            var len=rows*cells;
-            var arr=[];
-            for(var i=0;i<len/2;i++){
-                arr[i]=i;
-                arr[len/2+i]=i;
+            function again_click(){
+                location.reload();
             }
-            function randomSort(a, b) { return Math.random() > 0.5 ? -1 : 1; }
-            arr.sort(randomSort);
+
+            
+
+            
         </script>
         <script>
             var z=0;
@@ -54,7 +83,7 @@
                 str+="<div class='con'>";
                 for(var j=0;j<cells;j++){
                     ++y;
-                    str+="<img id='fg"+((i*5)+y)+"' onclick='dianji("+((i*5)+y)+")' src='img/"+arr[z++]+".jpg'>";
+                    str+="<img id='fg"+((i*5)+y)+"' onclick='dianji("+((i*5)+y)+")' src='img/"+arr[z++]+".jpg' data-x="+i+" data-y="+j+">";
                 }
                 str+="</div>";
             }
@@ -62,6 +91,14 @@
         </script>
         
     </div>
+    <div id="zhezhao">
+        <div class="tanchuang">
+            <img src="img/success_ico.jpg" alt="">
+            <p id="neirong"></p>
+            <div id="again" onclick="again_click()">再来一次</div>
+        </div>
+    </div>
+    <span id="is_span">请点击开始游戏</span>
     <audio id="fail" src="img/fail.mp3" ></audio>
     <audio id="success" src="img/success.mp3" ></audio>
     
@@ -70,75 +107,140 @@
         var duibi="";
         var id="";
         var index=0;
-
+        var is_kaishi=false;
+        var youxi_time=60;//游戏时长
+        var settime;
         
 
-        function dianji(x){
-            var imgget="";
-            add_botderStyle("fg"+x);
-            if(duibi==""){
-                duibi=$("fg"+x).getAttribute('src');
-                id=x;
+        function myTimer(){
+            console.log(youxi_time)
+            // document.getElementsByClassName("kaishi")[0].innerHTML=secondToDate(youxi_time--);
+            
+            if(youxi_time<1){
+                clearInterval(settime);
+                $("neirong").innerHTML="未能通关";
+                $("daojishi").innerHTML="00:00";
+                $("zhezhao").style.display="flex";
             }else{
-                if(id==x){
-                    $("fg"+x).style.animationName="no_pipei";
-                    $("fg"+x).style.animationDuration=".3s";
-                    $("fail").play();
-                    setTimeout(function(){
-                        remove_botderStyle("fg"+x);
-                    }, 300);
+                $("daojishi").innerHTML=secondToDate(--youxi_time);
+            }
+        }
+
+        
+        //遗留bug，点击多次setInterval重复执行，clearInterval无法停止
+        //原因：https://segmentfault.com/q/1010000013527461
+        // function kaishis(){
+        //     is_kaishi=true;
+        //     settime=setInterval(function(){myTimer()},1000);
+
+        // }
+
+
+
+        function kaishis(){
+            if(!is_kaishi){
+                is_kaishi=true;
+                document.getElementsByClassName("kaishi")[0].style.backgroundColor="#fbb03b";
+                // document.getElementsByClassName("kaishi")[0].innerHTML="游戏进行中";
+                document.getElementsByClassName("kaishi")[0].innerHTML="重新开始";
+                settime=setInterval(function(){myTimer()},1000);
+            }else{
+                again_click();
+            }
+            
+
+        }
+
+        function dianji(x){
+            if(!is_kaishi){
+                $("is_span").style.display="block";
+                $("is_span").style.opacity="1";
+                setTimeout(function(){
+                    $("is_span").style.opacity="0";
+                    }, 2000);  
+                // 
+                // 
+            }else{
+                var imgget="";
+                add_botderStyle("fg"+x);
+                if(duibi==""){
+                    duibi=$("fg"+x).getAttribute('src');
+                    id=x;
                 }else{
-                    imgget=$("fg"+x).getAttribute('src');
-                    if(duibi==imgget){
-                        $("fg"+x).style.visibility="hidden";
-                        $("fg"+id).style.visibility="hidden";
-                        $("success").play();
-                        index=index+2;
-                        
-                    }else{
+                    if(id==x){
                         $("fg"+x).style.animationName="no_pipei";
-                        $("fg"+x).style.animationDuration=".3s";
-                        $("fg"+id).style.animationName="no_pipei";
-                        $("fg"+id).style.animationDuration=".3s";
+                        $("fg"+x).style.animationDuration=donghua_time;
                         $("fail").play();
+                        setTimeout(function(){
+                            remove_botderStyle("fg"+x);
+                        }, 300);
+                    }else{
+                        imgget=$("fg"+x).getAttribute('src');
+                        if(duibi==imgget){
+                            
+                            $("fg"+x).style.animationName="success_xiaoshi";
+                            $("fg"+x).style.animationDuration=donghua_time;
+                            $("fg"+id).style.animationName="success_xiaoshi";
+                            $("fg"+id).style.animationDuration=donghua_time;
+
+                            setTimeout(function(){
+                                $("fg"+x).style.visibility="hidden";
+                                $("fg"+id).style.visibility="hidden";
+                                remove_botderStyle("fg"+id);
+                                remove_botderStyle("fg"+x);
+
+                            }, 400);
+
+
+                            $("success").play();
+                            index=index+2;
+                            $("defen").innerHTML=index;//得分赋值
+                            
+                        }else{
+                            $("fg"+x).style.animationName="no_pipei";
+                            $("fg"+x).style.animationDuration=donghua_time;
+                            $("fg"+id).style.animationName="no_pipei";
+                            $("fg"+id).style.animationDuration=donghua_time;
+                            $("fail").play();
+
+                            setTimeout(function(){
+                                $("fg"+id).style.animationName="";
+                                $("fg"+x).style.animationName="";
+                                remove_botderStyle("fg"+id);
+                                remove_botderStyle("fg"+x);
+
+                            }, 400);
+                            
+                        }
                         
                     }
+
+                    setTimeout(function(){
+                        $("fg"+id).style.animationName="";
+                        $("fg"+x).style.animationName="";
+                        remove_botderStyle("fg"+id);
+                        remove_botderStyle("fg"+x);
+
+                    }, 400);
+                    
+                    
+                    
+                    
+                //临时办法，利用时间差
+                    setTimeout(function(){
+                        duibi="";
+                        id="";
+                    }, 400);
                     
                 }
                 
-                
-                setTimeout(function(){
-                    $("fg"+id).style.animationName="";
-                    $("fg"+x).style.animationName="";
-                    remove_botderStyle("fg"+id);
-                    remove_botderStyle("fg"+x);
-
-                }, 300);
-                
-               //临时办法，利用时间差
-                setTimeout(function(){
-                    duibi="";
-                    id="";
-                }, 400);
-                    
-                
-                
-                
+                if(index==len){
+                    $("zhezhao").style.display="flex";
+                    $("neirong").innerHTML="恭喜通关";
+                    clearInterval(settime);
+                }
             }
             
-            if(index==len){
-                
-                // setTimeout(()=>{
-                //     alert("恭喜通过！！！再来一次");
-                //     location.reload();
-                // },300)
-
-                setTimeout(function(){
-                    alert("恭喜通过！！！再来一次");
-                    location.reload();
-                },200)
-
-            }
         
         }
 
