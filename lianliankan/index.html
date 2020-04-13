@@ -110,6 +110,7 @@
         var is_kaishi=false;
         var youxi_time=60;//游戏时长
         var settime;
+        var lastTime = 0;
         
 
         function myTimer(){
@@ -152,6 +153,11 @@
         }
 
         function dianji(x){
+            var nTime = new Date();
+            if(nTime - lastTime<=400){
+                return;
+            }
+            lastTime = nTime;
             if(!is_kaishi){
                 $("is_span").style.display="block";
                 $("is_span").style.opacity="1";

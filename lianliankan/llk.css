@@ -20,6 +20,8 @@ html,body{
 img{
     width: 100px;
     height: 100px;
+    user-select: none;
+    -webkit-user-drag: none;
     /* background-color: #ffb614; */
 }
 @keyframes no_pipei
