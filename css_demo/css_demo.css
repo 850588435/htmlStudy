@@ -1,0 +1,157 @@
+body {
+    background-color:#3b4e5c;
+    margin: 0;
+}
+#con{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    border: 1px solid white;
+    width: 400px;
+}
+.dingbu{
+    display: flex;
+    width: 200px;
+    height: 70px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.xian1,.xian2{
+    width: 50px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+}
+.xian1{
+    position: relative;
+}
+.yuan1{
+    position: absolute;
+    right: 0;
+    top: -1px;
+}
+
+.xian2{
+    position: relative;
+}
+.yuan2{
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+
+.yuan1,.yuan2{
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: white;
+}
+.dingbu>p{
+    color:white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.xuanzhuan,.jiage{
+    width: 350px;
+    margin: 0 auto;
+}
+.xuanzhuan{
+    height: 350px;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fangge{
+    width: 100px;
+    height: 100px;
+    background-color: #2ec22e;
+    transform-origin: center center;
+    animation: myfangge 6s linear infinite;
+}
+@keyframes myfangge{
+    from{transform:rotateZ(0deg)}
+    to{transform:rotateZ(360deg)}
+}
+.guanbi_x{
+    height: 40px;
+    width: 1px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: -36px;
+}
+.guanbi_x>p{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid white;
+    color: white;
+    top: -22px;
+    left: -11px;
+    font-size: 16px;
+    margin: 0;
+}
+.guanbi_icon{
+    width: 10px;
+    height: ;
+}
+
+
+
+
+
+.jiage{
+    height: 150px;
+    background-color: #ff8c13;
+    border-radius:0 0 5px 5px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.jiage>span{
+    text-align: center;
+    color: white;
+}
+.s1{
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+.s2{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.anniu{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.anniu>p{
+    cursor: pointer;
+}
+.zhidao{
+    margin-right: 20px;
+    border: 1px solid white;
+}
+.zhidao,.kanjia{
+    height: 45px;
+    width: 130px;
+    text-align: center;
+    line-height: 45px;
+    
+    border-radius: 30px;
+    color:white;
+}
+.kanjia{
+    background-color: #ff8c13;
+    border: 1px solid #ff8c13;
+}
