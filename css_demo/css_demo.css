@@ -219,6 +219,8 @@ body {
     animation: myguang 2s linear 2s;
     opacity: 0;
     animation-fill-mode:forwards;
+    perspective:100;
+    -webkit-perspective:100;
 }
 @keyframes myguang{
     0% {opacity: 0;}
@@ -228,12 +230,16 @@ body {
 i{
     position: absolute;
     display: block;
-    border-top: 605px solid rgba(231, 186, 31,.3);
+    /* border-top: 605px solid rgba(231, 186, 31,.3);
     border-right:10px solid transparent;
-    border-left: 10px solid transparent;
+    border-left: 10px solid transparent; */
+    height: 600px;
+    width: 20px;
+    background-image: linear-gradient( rgba(243, 149, 73,0), rgba(243, 149, 73,1));
     transform-origin: 0 100%;
     top: -200px;
     left: 405px;
+    
 }
 /* 辅助线 */
 .guangmang>p:nth-child(1){
@@ -254,7 +260,7 @@ i{
 }
 
 i:nth-child(1){
-    transform: rotateZ(0deg);
+    transform:  rotateX(45deg) rotateZ(0deg);
 }
 i:nth-child(2){
     transform: rotateZ(5deg);
