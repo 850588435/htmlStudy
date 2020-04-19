@@ -209,18 +209,17 @@ body {
 .guangmang{
     width: 822px;
     height: 100%;
-    /* background-color: mediumseagreen; */
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: -10;
     overflow: hidden;
-    animation: myguang 2s linear 2s;
+    /* animation: myguang 2s linear 2s;
     opacity: 0;
-    animation-fill-mode:forwards;
-    perspective:100;
-    -webkit-perspective:100;
+    animation-fill-mode:forwards; */
+    perspective:62;
+    -webkit-perspective:62;
 }
 @keyframes myguang{
     0% {opacity: 0;}
@@ -230,15 +229,13 @@ body {
 i{
     position: absolute;
     display: block;
-    /* border-top: 605px solid rgba(231, 186, 31,.3);
-    border-right:10px solid transparent;
-    border-left: 10px solid transparent; */
     height: 600px;
-    width: 20px;
-    background-image: linear-gradient( rgba(243, 149, 73,0), rgba(243, 149, 73,1));
+    width: 12px;
+    background-image: linear-gradient(  rgba(243, 149, 73,0)  68%,rgba(243, 149, 73,.5));
     transform-origin: 0 100%;
     top: -200px;
     left: 405px;
+    
     
 }
 /* 辅助线 */
@@ -260,218 +257,74 @@ i{
 }
 
 i:nth-child(1){
-    transform:  rotateX(45deg) rotateZ(0deg);
+    transform:  rotateX(-10deg) rotateZ(0deg);
 }
 i:nth-child(2){
-    transform: rotateZ(5deg);
+    transform:  rotateX(-10deg) rotateZ(15deg);
 }
 i:nth-child(3){
-    transform: rotateZ(10deg);
+    transform:  rotateX(-10deg) rotateZ(30deg);
 }
 i:nth-child(4){
-    transform: rotateZ(15deg);
+    transform:  rotateX(-10deg) rotateZ(45deg);
 }
 i:nth-child(5){
-    transform: rotateZ(20deg);
+    transform:  rotateX(-10deg) rotateZ(60deg);
 }
 i:nth-child(6){
-    transform: rotateZ(25deg);
+    transform:  rotateX(-10deg) rotateZ(75deg);
 }
 i:nth-child(7){
-    transform: rotateZ(30deg);
+    transform:  rotateX(-10deg) rotateZ(90deg);
 }
 i:nth-child(8){
-    transform: rotateZ(35deg);
+    transform:  rotateX(-10deg) rotateZ(105deg);
 }
 i:nth-child(9){
-    transform: rotateZ(40deg);
+    transform:  rotateX(-10deg) rotateZ(120deg);
 }
 i:nth-child(10){
-    transform: rotateZ(45deg);
+    transform:  rotateX(-10deg) rotateZ(135deg);
 }
 i:nth-child(11){
-    transform: rotateZ(50deg);
+    transform:  rotateX(-10deg) rotateZ(150deg);
 }
 i:nth-child(12){
-    transform: rotateZ(55deg);
+    transform:  rotateX(-10deg) rotateZ(165deg);
 }
 i:nth-child(13){
-    transform: rotateZ(60deg);
+    transform:  rotateX(-10deg) rotateZ(180deg);
 }
 i:nth-child(14){
-    transform: rotateZ(65deg);
+    transform:  rotateX(-10deg) rotateZ(195deg);
 }
 i:nth-child(15){
-    transform: rotateZ(70deg);
+    transform:  rotateX(-10deg) rotateZ(210deg);
 }
 i:nth-child(16){
-    transform: rotateZ(75deg);
+    transform:  rotateX(-10deg) rotateZ(225deg);
 }
 i:nth-child(17){
-    transform: rotateZ(80deg);
+    transform:  rotateX(-10deg) rotateZ(240deg);
 }
 i:nth-child(18){
-    transform: rotateZ(85deg);
+    transform:  rotateX(-10deg) rotateZ(255deg);
 }
 i:nth-child(19){
-    transform: rotateZ(90deg);
+    transform:  rotateX(-10deg) rotateZ(270deg);
 }
 i:nth-child(20){
-    transform: rotateZ(95deg);
+    transform:  rotateX(-10deg) rotateZ(285deg);
 }
 i:nth-child(21){
-    transform: rotateZ(100deg);
+    transform:  rotateX(-10deg) rotateZ(300deg);
 }
 i:nth-child(22){
-    transform: rotateZ(105deg);
+    transform:  rotateX(-10deg) rotateZ(315deg);
 }
 i:nth-child(23){
-    transform: rotateZ(110deg);
+    transform:  rotateX(-10deg) rotateZ(330deg);
 }
 i:nth-child(24){
-    transform: rotateZ(115deg);
-}
-i:nth-child(25){
-    transform: rotateZ(120deg);
-}
-i:nth-child(26){
-    transform: rotateZ(125deg);
-}
-i:nth-child(27){
-    transform: rotateZ(130deg);
-}
-i:nth-child(28){
-    transform: rotateZ(135deg);
-}
-i:nth-child(29){
-    transform: rotateZ(140deg);
-}
-i:nth-child(30){
-    transform: rotateZ(145deg);
-}
-i:nth-child(31){
-    transform: rotateZ(150deg);
-}
-i:nth-child(32){
-    transform: rotateZ(155deg);
-}
-i:nth-child(33){
-    transform: rotateZ(160deg);
-}
-i:nth-child(34){
-    transform: rotateZ(165deg);
-}
-i:nth-child(35){
-    transform: rotateZ(170deg);
-}
-i:nth-child(36){
-    transform: rotateZ(175deg);
-}
-i:nth-child(37){
-    transform: rotateZ(180deg);
-}
-i:nth-child(38){
-    transform: rotateZ(185deg);
-}
-i:nth-child(39){
-    transform: rotateZ(190deg);
-}
-i:nth-child(40){
-    transform: rotateZ(195deg);
-}
-i:nth-child(41){
-    transform: rotateZ(200deg);
-}
-i:nth-child(42){
-    transform: rotateZ(205deg);
-}
-i:nth-child(43){
-    transform: rotateZ(210deg);
-}
-i:nth-child(44){
-    transform: rotateZ(215deg);
-}
-i:nth-child(45){
-    transform: rotateZ(220deg);
-}
-i:nth-child(46){
-    transform: rotateZ(225deg);
-}
-i:nth-child(47){
-    transform: rotateZ(230deg);
-}
-i:nth-child(48){
-    transform: rotateZ(235deg);
-}
-i:nth-child(49){
-    transform: rotateZ(240deg);
-}
-i:nth-child(50){
-    transform: rotateZ(245deg);
-}
-i:nth-child(51){
-    transform: rotateZ(250deg);
-}
-i:nth-child(52){
-    transform: rotateZ(255deg);
-}
-i:nth-child(53){
-    transform: rotateZ(260deg);
-}
-i:nth-child(54){
-    transform: rotateZ(265deg);
-}
-i:nth-child(55){
-    transform: rotateZ(270deg);
-}
-i:nth-child(56){
-    transform: rotateZ(275deg);
-}
-i:nth-child(57){
-    transform: rotateZ(280deg);
-}
-i:nth-child(58){
-    transform: rotateZ(285deg);
-}
-i:nth-child(59){
-    transform: rotateZ(290deg);
-}
-i:nth-child(60){
-    transform: rotateZ(295deg);
-}
-i:nth-child(61){
-    transform: rotateZ(300deg);
-}
-i:nth-child(62){
-    transform: rotateZ(305deg);
-}
-i:nth-child(63){
-    transform: rotateZ(310deg);
-}
-i:nth-child(64){
-    transform: rotateZ(315deg);
-}
-i:nth-child(65){
-    transform: rotateZ(320deg);
-}
-i:nth-child(66){
-    transform: rotateZ(325deg);
-}
-i:nth-child(67){
-    transform: rotateZ(330deg);
-}
-i:nth-child(68){
-    transform: rotateZ(335deg);
-}
-i:nth-child(69){
-    transform: rotateZ(340deg);
-}
-i:nth-child(70){
-    transform: rotateZ(345deg);
-}
-i:nth-child(71){
-    transform: rotateZ(350deg);
-}
-i:nth-child(72){
-    transform: rotateZ(355deg);
+    transform:  rotateX(-10deg) rotateZ(345deg);
 }
