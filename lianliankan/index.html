@@ -83,7 +83,7 @@
                 str+="<div class='con'>";
                 for(var j=0;j<cells;j++){
                     ++y;
-                    str+="<img id='fg"+((i*5)+y)+"' onclick='dianji("+((i*5)+y)+")' src='img/"+arr[z++]+".jpg' data-x="+i+" data-y="+j+">";
+                    str+="<img id='fg"+((i*5)+y)+"' onclick='dianji("+((i*5)+y)+")' src='img/"+arr[z++]+".jpg' data-x="+(i+1)+" data-y="+(j+1)+">";
                 }
                 str+="</div>";
             }
@@ -111,10 +111,10 @@
         var youxi_time=60;//游戏时长
         var settime;
         var lastTime = 0;
-        
+        var datax="",datay="";
+
 
         function myTimer(){
-            console.log(youxi_time)
             // document.getElementsByClassName("kaishi")[0].innerHTML=secondToDate(youxi_time--);
             
             if(youxi_time<1){
@@ -153,27 +153,33 @@
         }
 
         function dianji(x){
+
+            var imgget="";
+            var x1="",y1="";
+
             var nTime = new Date();
             if(nTime - lastTime<=400){
                 return;
             }
             lastTime = nTime;
-            if(!is_kaishi){
+            if(!is_kaishi){//是否点击开始游戏
                 $("is_span").style.display="block";
                 $("is_span").style.opacity="1";
                 setTimeout(function(){
                     $("is_span").style.opacity="0";
-                    }, 2000);  
-                // 
-                // 
+                    }, 2000);
+                
             }else{
-                var imgget="";
+
                 add_botderStyle("fg"+x);
-                if(duibi==""){
+                if(duibi==""){//第一次点击获取值
                     duibi=$("fg"+x).getAttribute('src');
                     id=x;
+                    datax=$("fg"+x).getAttribute("data-x");
+                    datay=$("fg"+x).getAttribute("data-y");
+
                 }else{
-                    if(id==x){
+                    if(id==x){//两次点击相同
                         $("fg"+x).style.animationName="no_pipei";
                         $("fg"+x).style.animationDuration=donghua_time;
                         $("fail").play();
@@ -181,8 +187,12 @@
                             remove_botderStyle("fg"+x);
                         }, 300);
                     }else{
+
+                        x1=$("fg"+x).getAttribute("data-x");
+                        y1=$("fg"+x).getAttribute("data-y");
+
                         imgget=$("fg"+x).getAttribute('src');
-                        if(duibi==imgget){
+                        if((duibi==imgget)&&((datax==x1&&datax==1)||(datay==y1&&datay==1)||(datay==y1&&datay==6)||(datax==x1&&datax==5))){
                             
                             $("fg"+x).style.animationName="success_xiaoshi";
                             $("fg"+x).style.animationDuration=donghua_time;
@@ -236,6 +246,8 @@
                     setTimeout(function(){
                         duibi="";
                         id="";
+                        datax="";
+                        datay="";
                     }, 400);
                     
                 }
