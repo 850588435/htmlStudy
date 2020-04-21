@@ -192,7 +192,7 @@
                         y1=$("fg"+x).getAttribute("data-y");
 
                         imgget=$("fg"+x).getAttribute('src');
-                        if((duibi==imgget)&&((datax==x1&&datax==1)||(datay==y1&&datay==1)||(datay==y1&&datay==6)||(datax==x1&&datax==5))){
+                        if((duibi==imgget)&&((datax==x1&&datax==1)||(datay==y1&&datay==1)||(datay==y1&&datay==6)||(datax==x1&&datax==5)||(Math.abs(y1-datay)==1)||(Math.abs(x1-datax)==1))){
                             
                             $("fg"+x).style.animationName="success_xiaoshi";
                             $("fg"+x).style.animationDuration=donghua_time;
