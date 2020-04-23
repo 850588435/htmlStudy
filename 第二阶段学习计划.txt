@@ -1,0 +1,39 @@
+2020.04.22 第二阶段学习任务
+1. 略了解JQuery, Bootstrap.  (1-2天时间)
+https://www.runoob.com/bootstrap/bootstrap-tutorial.html
+https://www.runoob.com/jquery/jquery-tutorial.html
+
+2. 学习和掌握AJAX
+https://www.runoob.com/ajax/ajax-tutorial.html
+
+3. 学习和掌握ES6, 并巩固前面学的JS
+https://www.runoob.com/w3cnote/es6-setup.html
+https://es6.ruanyifeng.com/#docs/intro
+
+4.学习和熟练掌握前端框架VUE.
+https://www.runoob.com/vue2/vue-tutorial.html
+https://cn.vuejs.org/v2/guide/installation.html
+
+5. 熟练掌握一个基于VUE的UI框架 Element UI.
+https://element.eleme.cn/2.13/#/zh-CN/component/installation
+
+6. 初步掌握Echart的基本使用(百度公司的).
+https://www.runoob.com/echarts/echarts-tutorial.html
+
+学习时长: 2个月. 
+作业与注意事项:
+1. 尝试用JQuery重写连连看代码.
+2. 将Animate.css改写到一个页面, 平铺所有动画, 并循环运行. 
+    https://daneden.github.io/animate.css/
+    要求:  
+        1) 可用JQuery或ES6. 不允许写死,不允许写HTML,需动态生成所有动画元素, 考虑响应式适应手机.
+        2) 用Ajax读取https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css文件, 然后用正则表达式查找所有定义的动画做为输入. 
+3. 用VUE重写连连看, 并可自行再添加完善功能, 成为一个完善小游戏, 考虑响应式适应手机. 
+4. 用VUE, Element UI, Echart. 写一套后台管理系统. 主题: 中咨联测试用例与测试计划管理系统. 要求:
+    1) 自行产品原型设计, 可参考栗子学院查询平台, 禅道, Teambition等等平台. 可找我讨论. 
+    2) 为强化HTML与CSS, 不光强调功能, 还必须要有美感, 可参考别人好的设计. 
+    3) 后台API可找徐新全, 楼乃或丁圆帮忙.
+    4) 要自行再学习下测试流程与管理(可考虑买书或网上找), 几轮测试流程要能在系统体现. 
+        Smoke Testing(冒烟测试), Sanity Testing(健全测试, 回归的子集), Integration test（集成测试）, Regression Testing(回归测试),  验收测试(User Acceptance Testing)
+        功能/逻辑/性能/界面/安全/体验
+    5) 要有一些简单的图形统计. 
