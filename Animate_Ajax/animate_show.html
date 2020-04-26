@@ -1,0 +1,46 @@
+<!DOCTYPE HTLM>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    </head>
+    <body>
+        <p class="jello animated">Animate.css</p>
+        <button type="button" onclick="getAnimate()">修改内容</button>
+        <p id="myDiv">Animate.css</p>
+        <script>
+
+            var cssCon="";
+            var regex=/\.[a-zA-Z0-9_\-]*{/g;
+            var arr=new Array();
+            var fei_arr=12;
+
+            function getAnimate(){
+                var xmlhttp=new XMLHttpRequest();
+                xmlhttp.onreadystatechange=function(){
+
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        cssCon=xmlhttp.responseText;
+                        arr=cssCon.match(regex);
+                        for(var i=0;i<arr.length;i++){
+                            arr[i]=arr[i].slice(1,-1);
+
+                        }
+                        for(var j=0;j<fei_arr;j++){
+                            //删除数组最后12个class
+                            arr.splice((arr.length-1),1);
+                        }
+                        console.log(arr);
+                        
+                    }
+                    
+            
+                }
+                xmlhttp.open("GET","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css",true);
+                xmlhttp.send();
+            }
+            
+        </script>
+    </body>
+    
+</html>
