@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    background-color: #cdedfc;
+    width: 100%;
+}
+
+.aaa{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 2.5%;
+    border-radius: 10px;
+    width: 20%;
+    float: left;
+    overflow: hidden;
+    background:white;
+}
+
+p{
+    font-size: 54px;
+    animation-iteration-count:infinite;
+}
+body>p:nth-child(1){
+    display: flex;
+    justify-content: center;
+    margin:35px 0 26px 0;
+    font-family: Roboto, Verdana, sans-serif;
+    font-weight: 100;
+    color: #f35626;
+    background-image: linear-gradient(92deg, #f35626 0%,#feab3a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hue 6s infinite linear;
+    
+}
+
+span{
+    font-size: 22px;
+    color:darkgray;
+}
+
+@keyframes hue {
+    from {
+      filter: hue-rotate(0deg);
+    }
+    
+    to {
+      filter: hue-rotate(-360deg);
+    }
+  }
+
+
+@media screen and (max-width: 480px) {
+    .aaa{
+        margin: 20px 5%;
+        width: 90%;
+    }
+
+    body>p:nth-child(1){
+        margin:20px 0 0;
+        font-size: 34px;
+    }
+    p{
+        font-size: 45px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body>p:nth-child(1){
+        font-size: 30px;
+    }
+}
+
