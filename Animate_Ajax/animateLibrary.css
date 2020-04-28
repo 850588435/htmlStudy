@@ -53,12 +53,12 @@ span{
 
 
 @media screen and (max-width: 480px) {
-    .aaa{
+    .card{
         margin: 20px 5%;
         width: 90%;
     }
 
-    body>p:nth-child(1){
+    header{
         margin:20px 0 0;
         font-size: 34px;
     }
@@ -68,7 +68,7 @@ span{
 }
 
 @media screen and (max-width: 320px) {
-    body>p:nth-child(1){
+    header{
         font-size: 30px;
     }
 }

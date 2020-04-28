@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ES6Demo</title>
+    </head>
+    <body>
+        <script>
+            // console.log(a);
+            // var a=2;
+            // console.log(b);
+            // let b=3;
+
+            {
+                let [a, b, c] = [1, 2, 3];
+                // var [a, b, c] = [1, 2, 3];
+            }
+
+            //只要两边模式匹配即可赋值
+            // let [foo, [[bar], baz]] = [1, [[2], 3]];
+            // foo // 1
+            // bar // 2
+            // baz // 3
+
+            // let [ , , third] = ["foo", "bar", "baz"];
+            // third // "baz"
+
+            // let [x, , y] = [1, 2, 3];
+            // x // 1
+            // y // 3
+
+            // let [head, ...tail] = [1, 2, 3, 4];
+            // head // 1
+            // tail // [2, 3, 4]
+
+            // let [x, y, ...z] = ['a'];
+            // x // "a"
+            // y // undefined
+            // z // []
+            let [a, b, c] = [1, 2, 3];
+            console.log(a, b, c);
+            
+            //解构指定默认值
+            let [foot=true]=[];
+            console.log(foot)
+            
+            
+        </script>
+    </body>
+</html>
