@@ -6,6 +6,7 @@
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <title>lianliankan_Demo</title> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 </head>
 <body>
     <div id="daohang">
@@ -32,13 +33,9 @@
             }
             function randomSort(a, b) { return Math.random() > 0.5 ? -1 : 1; }
             arr.sort(randomSort);
-            
-            function $(x){
-                return document.getElementById(x);
-            }
 
             function add_playvoice(x){
-                $(x).addEventListener("click",function(){
+                $("#"+x).on("click",function(){
                     $("mp3").play();
                 });
 
@@ -55,19 +52,23 @@
             }
 
             function add_botderStyle(x){
-                $(x).style.borderStyle="solid";
-                $(x).style.borderWidth="2px";
-                $(x).style.borderColor="#9c3f00";
-                $(x).style.boxSizing="border-box";
-                $(x).style.borderRadius="10px";
+
+                $("#"+x).css({
+                    "border":"2px solid #9c3f00",
+                    "box-sizing":"border-box",
+                    "border-radius": "10px"
+                })
             }
 
             function remove_botderStyle(x){
-                $(x).style.borderStyle="none";
+
+                $("#"+x).css({
+                    "border-style": "none"
+                })
             }
 
             function remove_playvoice(x){
-                $(x).removeEventListener("click",add_playvoice);
+                $("#"+x).off("click",add_playvoice);
             }
 
             function again_click(){
@@ -122,11 +123,17 @@
             
             if(youxi_time<1){
                 clearInterval(settime);
-                $("neirong").innerHTML="未能通关";
-                $("daojishi").innerHTML="00:00";
-                $("zhezhao").style.display="flex";
+
+                $("#neirong").html("未能通关");
+
+                $("#daojishi").html("00:00");
+
+                $("#zhezhao").css({
+                    "display":"flex"
+                })
+
             }else{
-                $("daojishi").innerHTML=secondToDate(--youxi_time);
+                $("#daojishi").html(secondToDate(--youxi_time));
             }
         }
 
@@ -144,9 +151,11 @@
         function kaishis(){
             if(!is_kaishi){
                 is_kaishi=true;
-                document.getElementsByClassName("kaishi")[0].style.backgroundColor="#fbb03b";
-                // document.getElementsByClassName("kaishi")[0].innerHTML="游戏进行中";
-                document.getElementsByClassName("kaishi")[0].innerHTML="重新开始";
+                $($(".kaishi")[0]).css({
+                    "background-color":"#fbb03b"
+                })
+
+                $($(".kaishi")[0]).html("重新开始");
                 settime=setInterval(function(){myTimer()},1000);
             }else{
                 again_click();
@@ -166,45 +175,69 @@
             }
             lastTime = nTime;
             if(!is_kaishi){//是否点击开始游戏
-                $("is_span").style.display="block";
-                $("is_span").style.opacity="1";
+
+                $("#is_span").css({
+                    "display":"block",
+                    "opacity":"1"
+                })
+
                 setTimeout(function(){
-                    $("is_span").style.opacity="0";
+                    $("#is_span").css({
+                        "opacity":"0"
+                        })
                     }, 2000);
                 
             }else{
 
                 add_botderStyle("fg"+x);
                 if(duibi==""){//第一次点击获取值
-                    duibi=$("fg"+x).getAttribute('src');
+                    duibi=$("#fg"+x).attr('src');
                     id=x;
-                    datax=$("fg"+x).getAttribute("data-x");
-                    datay=$("fg"+x).getAttribute("data-y");
+                    datax=$("#fg"+x).attr("data-x");
+                    datay=$("#fg"+x).attr("data-y");
 
                 }else{
                     if(id==x){//两次点击相同
-                        $("fg"+x).style.animationName="no_pipei";
-                        $("fg"+x).style.animationDuration=donghua_time;
-                        $("fail").play();
+
+                        $("#fg"+x).css({
+                            "animation-name":"no_pipei",
+                            "animation-duration":donghua_time
+                        })
+
+                        $("#fail").play();
                         setTimeout(function(){
                             remove_botderStyle("fg"+x);
                         }, 300);
                     }else{
 
-                        x1=$("fg"+x).getAttribute("data-x");
-                        y1=$("fg"+x).getAttribute("data-y");
+                        x1=$("#fg"+x).attr("data-x");
+                        y1=$("#fg"+x).attr("data-y");
 
-                        imgget=$("fg"+x).getAttribute('src');
+                        imgget=$("#fg"+x).attr('src');
                         if((duibi==imgget)&&((datax==x1&&datax==1)||(datay==y1&&datay==1)||(datay==y1&&datay==6)||(datax==x1&&datax==5)||(Math.abs(y1-datay)==1)||(Math.abs(x1-datax)==1))){
                             
-                            $("fg"+x).style.animationName="success_xiaoshi";
-                            $("fg"+x).style.animationDuration=donghua_time;
-                            $("fg"+id).style.animationName="success_xiaoshi";
-                            $("fg"+id).style.animationDuration=donghua_time;
+
+                            $("#fg"+x).css({
+                                "animation-name":"success_xiaoshi",
+                            "animation-duration":donghua_time
+                            })
+
+                            $("#fg"+id).css({
+                                "animation-name":"success_xiaoshi",
+                                "animation-duration":donghua_time
+                            })
 
                             setTimeout(function(){
-                                $("fg"+x).style.visibility="hidden";
-                                $("fg"+id).style.visibility="hidden";
+
+                                $("#fg"+x).css({
+                                    "visibility":"hidden",
+                                })
+
+                                $("#fg"+id).css({
+                                    "visibility":"hidden",
+                                })
+
+
                                 remove_botderStyle("fg"+id);
                                 remove_botderStyle("fg"+x);
 
@@ -213,18 +246,31 @@
 
                             $("success").play();
                             index=index+2;
-                            $("defen").innerHTML=index;//得分赋值
+                            $("#defen").html(index);//得分赋值
                             
                         }else{
-                            $("fg"+x).style.animationName="no_pipei";
-                            $("fg"+x).style.animationDuration=donghua_time;
-                            $("fg"+id).style.animationName="no_pipei";
-                            $("fg"+id).style.animationDuration=donghua_time;
-                            $("fail").play();
+
+                            $("#fg"+x).css({
+                                "animation-name":"no_pipei",
+                                "animation-duration":donghua_time
+                            })
+
+                            $("#fg"+id).css({
+                                "animation-name":"no_pipei",
+                                "animation-duration":donghua_time
+                            })
+                            $("fail")[0].play();
 
                             setTimeout(function(){
-                                $("fg"+id).style.animationName="";
-                                $("fg"+x).style.animationName="";
+
+                                $("#fg"+x).css({
+                                    "animation-name":"",
+                                })
+
+                                $("#fg"+id).css({
+                                    "animation-name":"",
+                                })
+
                                 remove_botderStyle("fg"+id);
                                 remove_botderStyle("fg"+x);
 
@@ -235,8 +281,13 @@
                     }
 
                     setTimeout(function(){
-                        $("fg"+id).style.animationName="";
-                        $("fg"+x).style.animationName="";
+                        $("#fg"+x).css({
+                            "animation-name":"",
+                        })
+
+                        $("#fg"+id).css({
+                            "animation-name":"",
+                        })
                         remove_botderStyle("fg"+id);
                         remove_botderStyle("fg"+x);
 
@@ -256,8 +307,10 @@
                 }
                 
                 if(index==len){
-                    $("zhezhao").style.display="flex";
-                    $("neirong").innerHTML="恭喜通关";
+                    $("#zhezhao").css({
+                        "display":"flex"
+                    })
+                    $("#neirong").html("恭喜通关");
                     clearInterval(settime);
                 }
             }
