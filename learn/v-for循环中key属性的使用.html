@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <span>Id:</span><input type="text" v-model="id">
+            <span>Name:</span><input type="text" v-model="name">
+            <input type="button" @click="add">
+            <p v-for="items in list" :key="items.id">
+                <input type="checkbox">
+                id:{{items.id}}---name:{{items.name}}
+            </p>
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    id:"",
+                    name:"",
+                    list:[
+                        {id:1,name:'李斯'},
+                        {id:2,name:'嬴政'},
+                        {id:3,name:'荀子'},
+                        {id:4,name:'赵高'},
+                    ]
+                },
+                methods:{
+                    add(){
+                        this.list.push({id:this.id,name:this.name});
+                    }
+                }
+            })
+        </script>
+    
+    </body>
+</html>

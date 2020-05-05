@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+
+            <!-- <input type="button" @click="toggle" value="toggle"> -->
+
+            <input type="button" @click="flag=!flag" value="toggle">
+            <h3 v-if="flag">这是用v-if控制的元素</h3>
+            <h3 v-show="flag">这是用v-show控制的元素</h3>
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    flag:true,
+                },
+                methods:{
+                    // toggle(){
+                    //     this.flag=!this.flag;
+                    // }
+                }
+            })
+        </script>
+    
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <p v-for="(item,index) in list">
+                {{index}}---{{item}}
+            </p>
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    list:[1,2,3,4,5,6]
+                },
+                methods:{
+                    
+                }
+            })
+        </script>
+    
+    </body>
+</html>

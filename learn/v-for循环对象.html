@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <p v-for="(val,key,i) in user">
+                值：{{val}}---键：{{key}}---索引：{{i}}
+            </p>
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    user:{
+                        id:1,
+                        name:"张三",
+                        sex:"男"
+                    }
+                },
+                methods:{
+                    
+                }
+            })
+        </script>
+    
+    </body>
+</html>

@@ -243,8 +243,8 @@
 
                             }, 400);
 
-
-                            $("success").play();
+                            console.log($("#success"));
+                            $("#success").play();
                             index=index+2;
                             $("#defen").html(index);//得分赋值
                             
@@ -259,7 +259,7 @@
                                 "animation-name":"no_pipei",
                                 "animation-duration":donghua_time
                             })
-                            $("fail")[0].play();
+                            $("#fail").play();
 
                             setTimeout(function(){
 
