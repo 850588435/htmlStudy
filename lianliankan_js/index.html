@@ -36,7 +36,7 @@
 
             function add_playvoice(x){
                 $("#"+x).on("click",function(){
-                    $("mp3").play();
+                    $("mp3").trigger('play');
                 });
 
                 
@@ -204,7 +204,7 @@
                             "animation-duration":donghua_time
                         })
 
-                        $("#fail").play();
+                        $("#fail").trigger('play');
                         setTimeout(function(){
                             remove_botderStyle("fg"+x);
                         }, 300);
@@ -214,8 +214,8 @@
                         y1=$("#fg"+x).attr("data-y");
 
                         imgget=$("#fg"+x).attr('src');
-                        if((duibi==imgget)&&((datax==x1&&datax==1)||(datay==y1&&datay==1)||(datay==y1&&datay==6)||(datax==x1&&datax==5)||(Math.abs(y1-datay)==1)||(Math.abs(x1-datax)==1))){
-                            
+                        if(duibi==imgget){
+                            // (duibi==imgget)&&((datax==x1&&datax==1)||(datay==y1&&datay==1)||(datay==y1&&datay==6)||(datax==x1&&datax==5)||(Math.abs(y1-datay)==1)||(Math.abs(x1-datax)==1))
 
                             $("#fg"+x).css({
                                 "animation-name":"success_xiaoshi",
@@ -243,8 +243,8 @@
 
                             }, 400);
 
-                            console.log($("#success"));
-                            $("#success").play();
+                            
+                            $("#success").trigger('play');
                             index=index+2;
                             $("#defen").html(index);//得分赋值
                             
@@ -259,7 +259,9 @@
                                 "animation-name":"no_pipei",
                                 "animation-duration":donghua_time
                             })
-                            $("#fail").play();
+
+                            $('#fail').trigger('play');
+                            // $("#fail").trigger('play');
 
                             setTimeout(function(){
 
