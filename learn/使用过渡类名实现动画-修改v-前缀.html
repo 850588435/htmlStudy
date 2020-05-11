@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+            /* .v-enter是进入之前的起始状态【时间点】 */
+            /* .v-leave-to是动画离开之后的终止状态【时间点】 */
+            .v-enter,.v-leave-to{
+                opacity:0;
+                transform:translateX(80px);
+            }
+
+
+            /* .v-enter-active 【入场动画的时间段】 */
+            /* .v-leave-active是动画离开之后的终止状态【离场动画的时间段】 */
+            .v-enter-active,.v-leave-active{
+                transition: all 0.8s ease; 
+            }
+
+            
+            .my-enter,.my-leave-to{
+                opacity:0;
+                transform:translateY(70px);
+            }
+
+            .my-enter-active,.my-leave-active{
+                transition: all 0.8s ease; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        <!-- 需求：点击按钮，让h3显示，再点击，让h3隐藏 -->
+            <input type="button" value="toogle" @click="flag=!flag">
+        <!-- transition元素是Vue官方提供的，把需要被动画控制的元素包裹起来 -->
+            <transition>
+                <h3 v-if="flag">这是一个H3</h3>
+            </transition>
+
+            <hr>
+            <input type="button" value="toogle2" @click="flag2=!flag2">
+
+            <transition name="my">
+                <h3 v-if="flag2">这是一个H3</h3>
+            </transition>
+
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    flag:false,
+                    flag2:false,
+                },
+                methods:{
+                    
+                }
+            })
+        </script>
+    
+    </body>
+</html>

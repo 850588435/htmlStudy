@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="button" value="toogle" @click="flag=!flag">
+            <!-- <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+                <h3 v-if="flag">这是一个H3</h3>
+            </transition> -->
+
+            <!-- 使用 :duration 统一设置入场和离场的动画时长-->
+            <!-- <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="400">
+                <h3 v-if="flag" class="animated">这是一个H3</h3>
+            </transition> -->
+
+            <!-- 使用 :duration="{enter:200,leave:800}" 来分别设置入场和离场的时长 -->
+            <transition 
+            enter-active-class="bounceIn" 
+            leave-active-class="bounceOut" 
+            :duration="{enter:200,leave:800}">
+                <h3 v-if="flag" class="animated">这是一个H3</h3>
+            </transition>
+
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    flag:false,
+                },
+                methods:{
+                    
+                }
+            })
+        </script>
+    
+    </body>
+</html>
