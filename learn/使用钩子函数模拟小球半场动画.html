@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+            .ball{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="button" value="加入购物车" @click="flag=!flag">
+            
+            <transition
+                @before-enter="beforeEnter"
+                @enter="enter"
+                @after-enter="afterEnter">
+
+                <div class="ball" v-show="flag"></div>
+            </transition>
+            
+
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    flag:false,
+                },
+                methods:{
+                    //动画开始之前的起始状态
+                    beforeEnter(el){
+                        el.style.transform="translate(0,0)";
+                    },
+                    //动画开始之后的结束状态
+                    enter(el,done){
+                        
+                        el.offsetWidth;//这句话没有实际的作用，但不写没有动画效果；可以认为el.offsetWidth会强制动画刷新
+                        el.style.transform="translate(300px,400px)";
+                        el.style.transition="all 3s ease";
+
+                        //done()就是afterEnter函数
+                        done()
+                    },
+                    afterEnter(el){
+                        this.flag=!this.flag;
+                    }
+
+
+                }
+            })
+        </script>
+    
+    </body>
+</html>
