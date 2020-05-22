@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <mycoml></mycoml>
+            <mycoml></mycoml>
+        </div>
+
+        <template id="templ">
+            <div>
+                <input type="button" value="Add" @click="increment">
+                <h3>{{count}}</h3>
+            </div>
+        </template>
+
+        <script>
+
+            // var dataObj={count:0}
+
+            Vue.component('mycoml',{
+                template:'#templ',
+                data:function(){
+                    return {count:0}
+                },
+                methods:{
+                    increment(){
+                        this.count++;
+                    }
+                }
+
+            });
+
+            let vm=new Vue({
+                el:"#app",
+                data:{},
+                methods:{}
+            })
+        </script>
+    
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <my-coml></my-coml>
+
+            <template id="templ">
+                <h3>这是使用Vue.extend创建<i>2222</i>的组件</h3>
+            </template>
+        </div>
+
+        <script>
+
+            // var coml=Vue.extend({
+            //     // 通过template属性，指定组件要展示的
+            //     template:'<h3>这是使用Vue.extend创建的组件</h3>'
+            // })
+
+            // 使用Vue.component('组件名称',创建出来的组件模板对象);
+            // Vue.component('myComl',coml);
+
+            // 组件名称命名：
+            // 驼峰式命名（'myComl'）则使用时 <my-coml>
+            // 小写字母命名（'mycoml'）则直接使用<mycoml>
+
+            // Vue.component('myComl',Vue.extend({
+            //     template:'<h3>这是使用Vue.extend创建的组件</h3>'
+            // }));
+
+            // Vue.component('myComl',{
+            //     template:'<h3>这是使用Vue.extend创建<i>2222</i>的组件</h3>'
+            // });
+
+            Vue.component('myComl',{
+                template:'#templ'
+            });
+
+            let vm=new Vue({
+                el:"#app",
+                data:{
+
+                },
+                methods:{
+                    
+                }
+            })
+        </script>
+    
+    </body>
+</html>

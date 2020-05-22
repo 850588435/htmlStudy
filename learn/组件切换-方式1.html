@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+
+            <a href="#" @click.prevent="loginon">登录</a>
+
+            <a href="#" @click.prevent="registeron">注册</a>
+
+            <login v-if='flag'></login>
+            <register v-else='flag'></register>
+
+        </div>
+
+        <script>
+
+            Vue.component('login',{
+                template:'<h3>登录组件</h3>',
+                
+            })
+
+            Vue.component('register',{
+                template:'<h3>注册组件</h3>',
+                
+            })
+
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    flag:true,
+                },
+                methods:{
+                    loginon(){
+                        this.flag=true
+                    },
+                    registeron(){
+                        this.flag=false
+                    }
+                }
+
+            })
+        </script>
+    
+    </body>
+</html>

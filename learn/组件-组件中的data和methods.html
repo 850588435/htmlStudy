@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <my-coml></my-coml>
+
+            <template id="templ" v-if="false">
+                <h3>这是使用Vue.extend创建<i>2222</i>的组件</h3>
+            </template>
+        </div>
+
+        <script>
+
+            Vue.component('myComl',{
+                template:'<h3>这是使用Vue.extend创建<i>2222</i>的组件----{{msg}}</h3>',
+                // 组件data必须是一个方法，且返回必须是一个对象
+                data:function(){
+                    return {
+                        msg:'这是组件中data定义的数据'
+                    }
+                }
+            });
+
+            let vm=new Vue({
+                el:"#app",
+                data:{
+
+                },
+                methods:{
+                    
+                }
+            })
+        </script>
+    
+    </body>
+</html>

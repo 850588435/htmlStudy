@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 父组件，可以在引用子组件的时候，通过属性绑定 （v-bind:）的形式，
+                把需要传递给子组件的数据，以属性绑定的形式，传递到子组件的内部 -->
+            <coml v-bind:parentmsg="msg"></coml>
+        </div>
+
+        <script>
+            let vm=new Vue({
+                el:"#app",
+                data:{
+                    msg:'123 父父组件中的数据'
+                },
+                methods:{},
+                components:{
+                    coml:{
+                        template:'<h3>这是子组件 --- {{parentmsg}}</h3>',
+                        //注意：组件中的所有props中的数据，都是通过父组件传递给子组件的s
+                        props:['parentmsg']//把父组件传递过来的parentmsg属性，先在props数组中定义，才能使用
+                    }
+                }
+            })
+        </script>
+    
+    </body>
+</html>
