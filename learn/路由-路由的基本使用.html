@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <script src="vue-router.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+
+        </div>
+
+        <script>
+
+            //创建组价对象
+            var login={
+                template:'<h1>登录组件</h1>'
+            }
+            
+            
+            var register={
+                template:'<h1>登录组件</h1>'
+            }
+
+            // 创建路由对象，当导入vue-router包后，在window全局对象中，就有一个路由的构造函数，叫做VueRouter
+            // 在 new 路由对象 的时候，可以为构造函数，传递一个配置对象
+            var routerObj=new VueRouter({
+                // route  这个配置对象中的route表示【路由配置规则】的意思 
+                routes:[  //路由匹配规则
+                    //每个路由规则都是一个对象 ，这个规则对象有两个属性：
+                    //属性1：path，表示监听哪个路由链接地址；
+                    //属性2：component，表示对应的组件
+                    // 注意：component 的属性值必须是一个组件模板对象，不能是组件的引用名称（'login'）
+                    {path: '/login', component: login},
+                    {path: '/register', component: register}
+                ]
+            })
+
+
+
+
+
+            let vm=new Vue({
+                el:"#app",
+                data:{
+
+                },
+                methods:{
+                    
+                },
+                router:routerObj, //将路由规则对象，注册到vm实例上，用来监听URL地址的变化，然后展示对应的组件
+            })
+        </script>
+    
+    </body>
+</html>
