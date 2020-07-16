@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{fullName}}</h2>
+    <h2>{{getfullName()}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'你好，Vue',
+            firstName:'Lebron',
+            lastName:'Jams'
+        },
+        //计算属性，当做属性使用，所以引用时不需要加（），且函数命名时也尽量按属性格式命名
+        computed:{
+            fullName:function () {
+                return this.firstName+' '+this.lastName;
+            }
+        },
+        methods:{
+            getfullName:function () {
+                return this.firstName+' '+this.lastName;
+            }
+        }
+    })
+</script>
+</body>
+</html>
