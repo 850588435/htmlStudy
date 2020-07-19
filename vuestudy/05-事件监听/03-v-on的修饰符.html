@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick">
+<!--  .stop修饰符，阻止冒泡事件  -->
+    <button @click.stop="btnClick">按钮</button>
+  </div>
+  <br>
+  <form action="baidu">
+<!--  .prevent修饰符，阻止默认行为  -->
+    <input type="submit" value="提交" @click.prevent="submitClick">
+  </form>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'你好，Vue'
+      },
+    methods:{
+      btnClick(){
+        console.log("btnClick");
+      },
+      divClick(){
+        console.log("divClick");
+      },
+      submitClick(){
+        console.log("submitClick");
+      }
+    }
+    })
+</script>
+</body>
+</html>

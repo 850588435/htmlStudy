@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item,index) in movies"
+        :class="{active:focuesIndex==index}"
+        @click="liClick(index)"
+    >{{item}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      movies:['海王','火影','哈利波特','预见未来'],
+      focuesIndex:0
+    },
+    methods:{
+      liClick(index){
+        this.focuesIndex=index;
+      }
+    }
+  })
+</script>
+</body>
+</html>

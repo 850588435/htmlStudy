@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{counter}}</h2>
+  <button @click="add">+</button>
+  <button @click="red">-</button>
+  <!-- 事件监听时，如果方法没有参数，则引用的函数可以不写（） -->
+  <button @click="add()">+</button>
+  <button @click="red()">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      counter:0
+      },
+    methods:{
+      add(){
+        this.counter++
+      },
+      red(){
+        this.counter--
+      }
+
+    }
+    })
+</script>
+</body>
+</html>

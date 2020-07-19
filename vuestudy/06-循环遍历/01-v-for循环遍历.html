@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <!--  1.遍历过程中，没有使用索引值  -->
+    <li v-for="item in name">
+      {{item}}
+    </li>
+  </ul>
+  <br>
+  <ul>
+    <!--  2.遍历过程中，获取索引值  -->
+    <li v-for="(item,index) in name">
+      {{index}}----{{item}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      name:['why','kobe','james']
+    }
+  })
+</script>
+</body>
+</html>
