@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <label for="agree">
+    <input type="checkbox" id="agree" v-model="isAgree">同意协议
+  </label>
+  <h2>您选择的是:{{isAgree}}</h2>
+  <button :disabled="!isAgree">下一步</button>
+  <br>
+  <label for="">
+    <input type="checkbox" value="足球" v-model="aihao">足球
+    <input type="checkbox" value="篮球" v-model="aihao">篮球
+    <input type="checkbox" value="排球" v-model="aihao">排球
+    <input type="checkbox" value="冰球" v-model="aihao">冰球
+  </label>
+  <h2>您的爱好是：{{aihao}}</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'你好，Vue',
+      isAgree:false,
+      aihao:[]
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<script>
+  let nums=[20,30,100,40,150,230,10];
+
+  // 函数式编程
+
+  // filter 返回布尔值，为true时返回新数组
+  let newNums=nums.filter(function (n) {
+    return n<100
+  })
+  console.log(newNums);
+
+  // map 将操作的内容返回新数组
+  let new2Nums=newNums.map(function (n) {
+    return n*2;
+  })
+  console.log(new2Nums);
+
+  // reduce 参数1：回调函数 参数2：red的默认值 回调函数：参数1:返回上一个值，参数2：当前值
+  let new3Nums=new2Nums.reduce(function (red,n) {
+    return red+n
+  },0)
+  console.log(new3Nums);
+
+
+  let totleNums=nums.filter(function (n) {
+    return n<100
+  }).map(function (n) {
+    return n*2
+  }).reduce(function (red,n) {
+    return red+n
+  },0)
+
+  console.log(totleNums);
+
+  // 箭头函数简写
+  let totle2Nums=nums.filter(n=>n<100).map(n=>n*2).reduce((red,n)=>red+n,0)
+  console.log(totle2Nums);
+
+
+</script>
+</body>
+</html>
