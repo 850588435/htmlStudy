@@ -6,9 +6,17 @@
 </head>
 <body>
 <div id="app">
-<!--   1.修饰符:lazy -->
-    <input type="text" v-model.lazy="message">
-    <h2>{{message}}</h2>
+<!-- 1.修饰符:lazy 懒加载，失去输入框焦点更新数据 -->
+  <input type="text" v-model.lazy="message">
+  <h2>{{message}}</h2>
+
+<!-- 2.修饰符：number  限定输入的内容为数字且类型为数字 -->
+  <input type="number" v-model.number="age">
+  <h2>{{age}}---{{typeof age}}</h2>
+
+<!-- 3.修饰符：trim -->
+  <input type="text" v-model.trim="name">
+  <h2>{{name}}</h2>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -16,7 +24,9 @@
     const app = new Vue({
         el:'#app',
         data:{
-            message:'你好，Vue'
+          message:'你好，Vue',
+          age:0,
+          name:''
         }
     })
 </script>
