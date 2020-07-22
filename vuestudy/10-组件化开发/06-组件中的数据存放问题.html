@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn1></cpn1>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>{{message}}</h2>
+    <p>试一试试一试</p>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+// 1.注册全局组件
+    Vue.component('cpn1',{
+      template:'#cpn',
+      // data 是一个函数,且返回的类型为对象
+      data(){
+        return{
+          message: '我是组件中的内容'
+        }
+      }
+    })
+
+
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'你好，Vue'
+        }
+
+    })
+</script>
+</body>
+</html>
