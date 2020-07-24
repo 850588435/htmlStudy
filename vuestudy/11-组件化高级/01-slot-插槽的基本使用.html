@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn>
+    <button>自己的按钮</button>
+  </cpn>
+  <cpn>
+    <p>ssss</p>
+  </cpn>
+  <cpn></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h2>我是组件</h2>
+    <p>我是组件，哈哈哈</p>
+    <slot><button>默认插槽</button></slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'你好，Vue'
+    },
+    components:{
+      cpn:{
+        template:'#cpn'
+      }
+    }
+  })
+</script>
+</body>
+</html>
