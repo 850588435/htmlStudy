@@ -48,6 +48,7 @@ export default {
     console.log('deactivated');
   },
   beforeRouteLeave(to,from,next){
+    console.log("beforeRouteLeave="+this.$route.path);
     this.path=this.$route.path
     next()
   },

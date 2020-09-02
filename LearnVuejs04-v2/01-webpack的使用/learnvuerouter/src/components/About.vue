@@ -7,7 +7,14 @@
 
 <script>
   export default {
-    name: "About"
+    name: "About",
+    methods: {
+      sss(){
+        this.$router.push();
+
+      }
+
+    }
   }
 </script>
 

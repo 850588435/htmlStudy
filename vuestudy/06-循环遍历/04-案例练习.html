@@ -12,24 +12,27 @@
 <body>
 <div id="app">
   <ul>
-    <li v-for="(item,index) in movies"
-        :class="{active:focuesIndex==index}"
-        @click="liClick(index)"
-    >{{item}}</li>
+    <li v-for="(item,index) in moives"
+        :class="{active:fouceIndex==index}"
+        @click="itemClick(index)"
+    >
+      {{item}}
+    </li>
   </ul>
 </div>
 
 <script src="../js/vue.js"></script>
 <script>
-  const app = new Vue({
+  const app= new Vue({
     el:'#app',
     data:{
-      movies:['海王','火影','哈利波特','预见未来'],
-      focuesIndex:0
+      moives:['海王','火影','哈利波特','预见未来'],
+      fouceIndex:0,
     },
     methods:{
-      liClick(index){
-        this.focuesIndex=index;
+      itemClick(index){
+        console.log(index);
+        return this.fouceIndex=index;
       }
     }
   })
